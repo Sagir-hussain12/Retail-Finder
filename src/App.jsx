@@ -74,13 +74,16 @@ function App() {
   const retailersByLocation = groupRetailersByLocation(filteredRetailers)
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-16">
+    <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="container mx-auto px-4 max-w-lg">
-        <div className={`fixed left-0 right-2 bg-white/95 backdrop-blur-sm z-20 transition-all duration-300 transform ${
-          isSearchVisible ? 'translate-y-[56px]' : '-translate-y-full'
-        }`}>
-          <div className="container mx-auto px- py-3   max-w-lg space-y-3">
+      <main className="container mx-auto px-4 max-w-lg pb-24">
+        <div 
+          className={`fixed left-0 right-0 bg-white/95 backdrop-blur-sm z-20 transition-all duration-300 transform ${
+            isSearchVisible ? 'translate-y-0' : '-translate-y-full'
+          }`}
+          style={{ top: '48px' }}
+        >
+          <div className="container mx-auto px-4 py-3 max-w-lg space-y-3">
             <SearchBar 
               searchTerm={searchTerm} 
               setSearchTerm={setSearchTerm} 
@@ -107,7 +110,7 @@ function App() {
           </div>
         </div>
         
-        <div className="pt-[56px] mt-3">
+        <div className="pt-28">
           <RetailerList 
             retailersByLocation={retailersByLocation} 
             isUsingLocation={isUsingLocation}
